@@ -1,0 +1,1 @@
+app.use : We use app.use() for using middleware most of the time & for configuration settings
