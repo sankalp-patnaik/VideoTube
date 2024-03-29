@@ -18,6 +18,9 @@ export {asyncHandler}
 // fn => req,res,next
 
 // It is a rapper function where we can use in multiple places in code // Reusability
+
+//  Method 1 for async Handler
+
 // const asyncHandler=(fn)=>async (req,res,next)=>{
 //     try {
 //         await fn(req,res,next)
