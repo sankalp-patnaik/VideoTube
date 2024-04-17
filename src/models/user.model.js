@@ -30,13 +30,12 @@ const userSchema=new Schema({
         trim:true,
         index:true
     },
-    avtar:{
+    avatar:{
         type:String, // Cloudinary URL
         required:true
     },
     coverImage:{
         type:String, //cloudinary URL
-        required:true
     },
     password:{
         type:String,
@@ -52,7 +51,7 @@ const userSchema=new Schema({
 // Here we use Normal function to use the this reference & know the conntext & to access the userschema data
 // Arrow function doesnot provide this reference & the context. & it doesnot provide the access to the userSchema Data so we use normal function with Async becoz it takes some time to run
 userSchema.pre("save",async function(next){
-    if(!this.password.isModified("password")) return next();
+    if(!this.isModified("password")) return next();
 
     this.password=await bcrypt.hash(this.password,10)
     next()
